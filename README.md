@@ -22,7 +22,7 @@ The following modules and libraries are required for the project:
   - imageio
 
 # Documentation
-There are different types of  classes corresponding to the unequal shape of the facilities
+There are different types of  classes corresponding to the machine shapes utilized in the facilities
 This claasses are:
   - `Horiz_Rectangle`
   - `Vert_Rectangle`
