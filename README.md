@@ -35,7 +35,7 @@ All classes has same methods
   - `reset_2(self)`: Resets the machine to its original position.
 The environment follows the Gym interface, so you can use the reset(), step(), and render() methods to interact with it.
 
-##Custom Environment:
+## Custom Environment:
 The  `CustomEnv` class extends the gym.Env class and introduces a more complex environment where multiple types of objects (such as horizontal rectangles, vertical rectangles, squares, L-shapes, and big squares) can interact in the environment.
 The `CustomEnv` environment has the following characteristics:
   - Observation space: 2D grid with shape (10, 10)
@@ -49,39 +49,39 @@ The `CustomEnv` environment has the following characteristics:
   - Reaching the maximum number of steps
   - Rendering: The environment supports rendering in a human-readable format.
 
-##getOutputWindow Function:
+## getOutputWindow Function:
 The `getOutputWindow` function is a utility function that generates an output window image based on the objects in the `Object_List`. Each object in the list is represented by a specific color in the output window image.
-###Usage:
+### Usage:
 To use the `getOutputWindow` function, you can import it and call it with the appropriate arguments:
 
-##Render and Close Functions:
+## Render and Close Functions:
 The `render` and `close` functions are utility functions for visualizing and closing the environment, respectively.
 Render Function:
 The `render` function is used to display the current state of the environment. It generates an output image using the `getOutputWindow` function and displays it using the appropriate visualization method.
 
-##Machine Selection:
+## Machine Selection:
 The code snippet allows the user to select a number of machines from a predefined list using dropdown menus.
-###Usage:
+### Usage:
 1. The code prompts the user to enter the number of machines they want to select.
 2. For each machine, a dropdown menu is displayed, allowing the user to choose from a list of available machine types.
 3. The selected machine types are stored in a list for further processing.
-###Example:
+### Example:
 To use the code snippet, follow these steps:
 1. Run the code.
 2. Enter the number of machines you want to select when prompted.
 3. For each machine, choose the desired machine type from the dropdown menu.
 4. Once all the machines have been selected, the selected machine types are stored in the `wid_lst` list.
 
-##Creating Custom Environment with Selected Machines:
+## Creating Custom Environment with Selected Machines:
 The code snippet creates a custom environment using the selected machine types.
-###Usage:
+### Usage:
 1. The code assumes that you have already selected the machine types and stored them in the `wid_lst` list.
 2. The code iterates over the `wid_lst` list and extracts the selected values from the dropdown menus.
 3. The extracted values are stored in the `val_lst` list.
 4. The `val_lst` list contains the selected machine types.
 5. The code creates an instance of the `CustomEnv` class, passing the `val_lst` list as an argument to initialize the environment with the selected machines.
 6. The `finalobj` variable holds the created custom environment with the selected machines.
-###Example:
+### Example:
 To use the code snippet, make sure you have already run the previous code snippet to select the machine types.
 1. Run the code.
 2. The code will extract the selected machine types from the `wid_lst` list and store them in the `val_lst` list.
@@ -89,22 +89,22 @@ To use the code snippet, make sure you have already run the previous code snippe
 4. The code will create a custom environment (`finalobj`) using the `CustomEnv` class and the selected machine types.
 5. The `finalobj` variable can be used to interact with the custom environment.
 
-##Machine Layout - RL Model Training and Testing:
+## Machine Layout - RL Model Training and Testing:
 The code snippet demonstrates the training and testing of a DQN (Deep Q-Network) RL (Reinforcement Learning) agent using a custom environment called "Machine Layout".
-###Prerequisites:
+### Prerequisites:
 - The code requires the `stable_baselines3` library. If it is not already installed, you can install it by running `!pip install stable-baselines3[extra]`.
 - Additionally, the `tensorboard` library is required for visualization purposes. You can install it by running `pip install -U tensorboard`.
-###Training:
+### Training:
 1. The code initializes a custom environment (`finalobj`) using the selected machine types from the previous step.
 2. The `check_env` function is used to check the custom environment and output additional warnings if needed.
 3. The DQN agent model is created using the `"MlpPolicy"` with the `DQN` class. The model is initialized with the custom environment, and various parameters are set, such as verbosity, exploration settings, and tensorboard logging.
 4. The `model.learn` function is called to train the DQN agent for a specified number of total timesteps. The training progress is logged at each interval.
 5. After training, the trained model is saved as "machine layout".
-###Visualization:
+### Visualization:
 1. The trained model can be visualized using TensorBoard by running the command `!tensorboard dev upload --logdir ./DQN_Machinelayout_tensorboard/`.
 2. Ensure that you have the `tensorboard` library installed before running the command.
 3. TensorBoard provides visualizations of the training process and performance metrics.
-###Testing:
+### Testing:
 1. The trained model is loaded using `DQN.load("machine layout")`.
 2. The variable `episodes` specifies the number of episodes to run the testing loop.
 3. The code runs a loop for the specified number of episodes.
